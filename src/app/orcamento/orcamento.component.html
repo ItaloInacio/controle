@@ -1,0 +1,52 @@
+<h1 style="text-align: center; font-size: 20px;">Itens do Orçamento</h1>
+<app-dados-os></app-dados-os>
+<div class="table-shadow" style="display: inline-block;">
+  <table class="table-minimal">
+
+    <!-- colunas da tabela -->
+
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th class="descricao">Descrição</th>
+        <th>Quantidade</th>
+        <th>Vlr Unitário</th>
+        <th>Custo</th>
+        <th>Percentual</th>
+        <th>ST</th>
+        <th>DIFAL</th>
+        <th>Vlr Venda</th>
+        <th>Frete</th>
+        <th>Vlr Total</th>
+        <th>Fornecedor</th>
+        <th>Observação</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of orcamento">
+        <td><input [(ngModel)]="item.codigo" class="small"></td>
+        <td><input [(ngModel)]="item.descricao" class="descricao"></td>
+        <td><input [(ngModel)]="item.quantidade" class="small"></td>
+        <td><input [(ngModel)]="item.valor_unitario" class="small"></td>
+        <td><input [(ngModel)]="item.custo" class="small"></td>
+        <td><input [(ngModel)]="item.percentual" class="small"></td>
+        <td><input [(ngModel)]="item.substituicao_tributaria" class="small"></td>
+        <td><input [(ngModel)]="item.icms_diferencial" class="small"></td>
+        <td><input [(ngModel)]="item.valor_venda_unitario" class="small"></td>
+        <td><input [(ngModel)]="item.frete" class="small"></td>
+        <td><input [(ngModel)]="item.valor_venda" class="small"></td>
+        <td><input [(ngModel)]="item.fornecedor"></td>
+        <td><input [(ngModel)]="item.qualificacao"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="removerLinha(1)"class="add-button" style="background: none; border: none; right: right;">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC8UlEQVR4nO2az2sTQRTHH/t9G/WgWFDrTY8e9GSPehOloOhR698gLf4XWg+Kgnj1T9C26imQmW1D8Sg2TXvyJwb13Bqx8pZNCWQ2ye6+/dHSB48MyWbzPvm+mXkzs0QHtk/NEE00gFsWmDfMiwZoWebfhnlbPGwDa/KZXGOBm3Wi41QFWyI6ZD3vrmF+Z5n/WuadhC7feWM8b0buRUXbMtERy3zfMH9NEbzTDfMXwzxXJzpcCIQBpg2wqQUwAARsBMC13ABEegM8yQvA4S9FeVWIFaJJC7wvEGInUmc1IDqlBXFW5C4awvYcaEsMmSAaRCejYbQcCN5VZrNOdDoVhIweZaSTHZJmqYZoAzwvO3g7mGZPk0JMlx40x8JcHX+2BtZLD5hjU2xjrElTZuyyg7WjYJhnR6ohpcIeAPk8tONLAVh2kHZMb3jenViQqIrV/Od+GN+/aJmnpK0Ms+SGIJpIWYrHQgS+f753f2krw3SbRMcGQMJFUQ4Q8trf1oQxwI3B/gE8ygMiTC/He0ogD139Y1Hh5p1l378QBlyrnbPM34d89k3h9165FGlrK5HmGptMkZZLkV85KTHq2izKdFwg2wVAaMNsaYGkgdCE2dJIrSwQWjAdV2dPVPHKjK3RafsHAMs8lei7wJpLkYWEAVzSKj2iewjEZY3hdz5rQEW7AR7kWqIU5Q3g+gCIbChrFo25q8H8x1k0Rv3k7R4CWXBChCCeN1N2gHZMDzzv9r5Y6n4gqsWCROk1V3agdrTfGwqxq0oFtkltnAPtsXcc5Xyioin1zwBXKIlZ4FkF1XicCKIvxVYrBNEc2cHjrE50oirHCitEk5TF5JAl6zI4oxLrAdEZ0jA5/iolzYCmHDZRHoehMnIUBPEi17N3OZ/IM9UM0Eo8xKa1qJSZlVJBEeKTzNilPAEhPyq74tHmXjdF8F2pYqUATD20apusDWQvVrYxLfPr6AGan72HasI28FGWp7Kyk0WRJTqqHsiBUTXsP1nMkaI4sktPAAAAAElFTkSuQmCC">
+  </button>
+  <button (click)="adicionarLinha()" class="add-button" style="background: none; border: none; float: right;">
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADLklEQVR4nO2ay04UQRSGK1PFxYVEEgF3ujQGVxJwpn6cjVFINLgUfQYD8S0UFxpNjFsfQQF1NUmfapgQl0a5rbxgMMhaxKCpHgYnTvVMV0/1dEs4yVnNVPX5+j9VferC2JEdViP0cg83uMKMIMxxwrJQ2BaEncAVtjnhQ/CbwgxXoxOsVDzBMmHzY105VbgtCG+Ekr+Ewm87123kqxzJW7ov1nZbuHhMKNwVhC/2wYc44bMgOc1Kxe62MHCS45yw7gzgH+eENe6PXk2OYH6si5N8lBSAIe2ea+XdQiyODHCFt+2DQFWdJebn+x1BFM9oudsNIaowSq7qGFqD8NC3P42mAiH+KrPOSsVT8SBKxe400kk0SrM4UzQnPE07eFGXZnhsCSHH0w5ahMIUrkSfZpVcSTtgEZ5ia5E+msEXOwMBi0ZOcqqpGkGpkH2QTw0HflAAph2kiuY5D5PhaRVUsekHKSKpgjkzBaE3XimelstdVh7uqePQi6L0g4OVcw/X6kEUHvx3ICTvG8aHnLXqyIPsIFwQhM2WgyJsVvqSsEyvlwZF5KpNJ/rBul2Hnx9sCUZD+PnB4GWqwpCdIlg2zVjfLd/Gt46FS+d1204/f1YouWEPUtfHV9v2JpAdB4FstA8Cuo8fjkDiwriAQCiIZWrFhXEFAXNqtVzx1gza0Akgyn9UdNcbfiZF5loCaaqMSyVQ9RcGRTDjoGPzW3eshDhQRN4zgIxOOAExwCQBIcJKFL2h7LRorIFJAkIQfhqLxso4ka+dPWgfpvK1Lgw5hVDB4mqWhZneFXf6sAQ95+Pm4VjqvjvXGQ5SSa/p1ANVTf1OQ4iqKlnYJhWN9oKj7jjq84lsphT2OOFyJIgDGIUn2VMDD60galJsKUMpVW46wEOtVDyZmWOFxZEB1vJBj+Uy2LESK8zPn2ZOzM/3p5FmXKeThz6WyGEoYa89EHiW6Nm7Pp9IMtU4Ydl6io1tQSkjp3Sp4A5Cfgy+2KncgNBXODxMVlaXcjdG8Lu6ig0KwNhTq2srD/dwktf1NqbeAdy/QLN1cKmGsMVJvtfLU72yCxZFqnDceRxHxrJhfwBY2wq3xMN1GQAAAABJRU5ErkJggg==">
+  </button>
+
+</div>

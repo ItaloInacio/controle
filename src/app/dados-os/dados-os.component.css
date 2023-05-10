@@ -1,0 +1,55 @@
+table {
+    border-radius: 5px;
+    overflow: hidden; /* esconde as partes que extrapolam o raio */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); /* adiciona sombreamento */
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(104, 99, 99, 0.2);
+    text-align: left;
+  }
+  
+  thead{
+    text-align: left;
+    background-color: #045C28;
+    color: #fff;
+    text-align: left;
+    width: 1400px;
+    height: 44px;
+    font-size: 12px;
+    white-space: nowrap;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  thead th {
+    padding: 10px;
+  }
+  
+  thead th.descricao {
+    width: 25%;
+    white-space: nowrap;
+    text-align: left;
+  }
+  
+  form {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  label, input, button {
+    margin: 5px;
+  }
+  
+  input[type=text], input[type=number] {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input{
+    background-color: rgb(215, 216, 215);
+    color: black;
+  }
